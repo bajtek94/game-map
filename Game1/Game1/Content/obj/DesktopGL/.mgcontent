@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1/Game1/Content/Asset01.png</File>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1/Game1/Content/example.png</File>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1/Game1/Content/map.tmx</File>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1/Game1/Content/sampel.png</File>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1/Game1/Content/magus_small.png</File>
+  </SourceFiles>
+</SourceFileCollection>
