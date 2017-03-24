@@ -19,6 +19,9 @@ namespace Game1
         SpriteBatch spriteBatch;
         Sprite playerSprite;
 
+        Sprite fire, fire1, fire2, fire3;
+        Sprite stone;
+
         private ViewportAdapter viewportAdapter;
         private TiledMap map;
         private TiledMapRenderer mapRenderer;
@@ -69,6 +72,12 @@ namespace Game1
             // TODO: use this.Content to load your game content here
             playerSprite = new Sprite(Content.Load<Texture2D>("enemy"), new Vector2((int)(screenWidth*0.5), (int)(screenHeight*0.5)), new Rectangle(0, 0, 100, 250), 0.4f);
 
+            fire = new Sprite(Content.Load<Texture2D>("Asset01"), new Vector2(300, 500), new Rectangle(500, 0, 200, 300), 0.4f);
+            fire1 = new Sprite(Content.Load<Texture2D>("Asset01"), new Vector2(400, 500), new Rectangle(500, 0, 200, 300), 0.4f);
+            fire2 = new Sprite(Content.Load<Texture2D>("Asset01"), new Vector2(300, 400), new Rectangle(500, 0, 200, 300), 0.4f);
+            fire3 = new Sprite(Content.Load<Texture2D>("Asset01"), new Vector2(400, 400), new Rectangle(500, 0, 200, 300), 0.4f);
+            stone = new Sprite(Content.Load<Texture2D>("Asset01"), new Vector2(400, 100), new Rectangle(500, 300, 200, 100), 2f);
+
             map = Content.Load<TiledMap>("map");
 
         }
@@ -94,24 +103,34 @@ namespace Game1
 
             // TODO: Add your update logic here
             playerSprite.Update();
+            fire.Update();
             var state = Keyboard.GetState();
+            int speed = 200;
+            var viewMatrix = camera.GetViewMatrix();
+            int speedForSprites = (int)(speed * viewMatrix.Scale.X);
 
             if (state.IsKeyDown(Keys.A))
             {
-                position.X -= 400 * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+                position.X -= speed * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
             }
             if (state.IsKeyDown(Keys.D))
             {
-                position.X += 400 * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+                position.X += speed * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
             }
             if (state.IsKeyDown(Keys.S))
             {
-                position.Y += 400 * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+                position.Y += speed * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
             }
             if (state.IsKeyDown(Keys.W))
             {
-                position.Y -= 400 * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+                position.Y -= speed * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
             }
+
+            fire.MoveUpdate(gameTime, speedForSprites);
+            fire1.MoveUpdate(gameTime, speedForSprites);
+            fire2.MoveUpdate(gameTime, speedForSprites);
+            fire3.MoveUpdate(gameTime, speedForSprites);
+            stone.MoveUpdate(gameTime, speedForSprites);
 
             camera.LookAt(position);
             mapRenderer.Update(map, gameTime);
@@ -134,9 +153,18 @@ namespace Game1
             var viewMatrix = camera.GetViewMatrix();
             var projectionMatrix = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0f, -1f);
             mapRenderer.Draw(map, viewMatrix, projectionMatrix, null);
+
+            //fire.Draw(spriteBatch);
+            //fire1.Draw(spriteBatch);
+            //fire2.Draw(spriteBatch);
+            //fire3.Draw(spriteBatch);
+            //stone.Draw(spriteBatch);
+
             playerSprite.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
+            
+
         }
 
     }

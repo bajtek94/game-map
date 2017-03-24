@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,28 @@ namespace Game1
             this.scale = scale;
         }
 
+        public void MoveUpdate(GameTime gameTime, int speed)
+        {
+            var state = Keyboard.GetState();
+            
+            if (state.IsKeyDown(Keys.A))
+            {
+                position.X += speed * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+            }
+            if (state.IsKeyDown(Keys.D))
+            {
+                position.X -= speed * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+            }
+            if (state.IsKeyDown(Keys.S))
+            {
+                position.Y -= speed * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+            }
+            if (state.IsKeyDown(Keys.W))
+            {
+                position.Y += speed * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
+            }
+        }
+
         public void Update()
         {
 
@@ -75,7 +98,8 @@ namespace Game1
         public void Draw(SpriteBatch spriteBatch)
         {
             //spriteBatch.Draw(spriteTexture, position, borderRect, Color.White);
-            spriteBatch.Draw(spriteTexture, position, null, null, null, 0, new Vector2(scale, scale), Color.White, SpriteEffects.None, 0);
+            spriteBatch.Draw(spriteTexture, position, null, borderRect, null, 0, new Vector2(scale, scale), Color.White, SpriteEffects.None, 0);
+            //spriteBatch.Draw(spriteTexture, position,)
         }
 
 
