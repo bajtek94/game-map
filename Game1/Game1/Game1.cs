@@ -50,7 +50,7 @@ namespace Game1
             viewportAdapter = new BoxingViewportAdapter(Window, GraphicsDevice, screenWidth*2, screenHeight*2);
             mapRenderer = new TiledMapRenderer(GraphicsDevice);
             camera = new Camera2D(viewportAdapter);
-            position = new Vector2(700,900);
+            position = new Vector2(1200,900);
             base.Initialize();
 
 
@@ -67,7 +67,7 @@ namespace Game1
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            playerSprite = new Sprite(Content.Load<Texture2D>("magus_small"), new Vector2((int)(screenWidth*0.5), (int)(screenHeight*0.5)), new Rectangle(50, 0, 50, 80));
+            playerSprite = new Sprite(Content.Load<Texture2D>("enemy"), new Vector2((int)(screenWidth*0.5), (int)(screenHeight*0.5)), new Rectangle(0, 0, 100, 250), 0.4f);
 
             map = Content.Load<TiledMap>("map");
 

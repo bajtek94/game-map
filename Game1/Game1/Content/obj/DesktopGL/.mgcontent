@@ -4,10 +4,11 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Studia_MyApps/03-mojaMapa/Game1/Game1/Content/Asset01.png</File>
-    <File>C:/Studia_MyApps/03-mojaMapa/Game1/Game1/Content/example.png</File>
-    <File>C:/Studia_MyApps/03-mojaMapa/Game1/Game1/Content/map.tmx</File>
-    <File>C:/Studia_MyApps/03-mojaMapa/Game1/Game1/Content/sampel.png</File>
-    <File>C:/Studia_MyApps/03-mojaMapa/Game1/Game1/Content/magus_small.png</File>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1a/game-map/Game1/Game1/Content/Asset01.png</File>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1a/game-map/Game1/Game1/Content/example.png</File>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1a/game-map/Game1/Game1/Content/map.tmx</File>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1a/game-map/Game1/Game1/Content/sampel.png</File>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1a/game-map/Game1/Game1/Content/magus_small.png</File>
+    <File>C:/Studia_MyApps/03-mojaMapa/Game1a/game-map/Game1/Game1/Content/enemy.png</File>
   </SourceFiles>
 </SourceFileCollection>
